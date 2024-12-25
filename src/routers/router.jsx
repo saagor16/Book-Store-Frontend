@@ -9,6 +9,10 @@ import App from "../App";
         {
             path: '/',
             element : <h1>home</h1>
+        },
+        {
+            path: '/about',
+            element : <h1>About</h1>
         }
       ]
     },
