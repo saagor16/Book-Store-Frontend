@@ -11,6 +11,10 @@ export default {
         'secondary' : '#0D0842',
         'blackBG' : '#F3F3F3',
         'favorite' : '#FF5841'
+      },
+      fontFamily:{
+        'primary':["montserrat", "serif"],
+        'secondary':["Nunito Sans", "serif"]
       }
     },
   },
