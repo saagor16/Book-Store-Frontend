@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import footerLogo from "../assets/footer-logo.png";
 
-import { FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa";
+import { FaFacebook, FaGithub, FaInstagram } from "react-icons/fa";
 
 const Footer = () => {
   return (
@@ -86,7 +86,7 @@ const Footer = () => {
             rel="noopener noreferrer"
             className="hover:text-primary"
           >
-            <FaTwitter size={24} />
+            <FaGithub size={24} />
           </a>
           <a
             href="https://instagram.com"
