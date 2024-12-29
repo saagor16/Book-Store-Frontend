@@ -1,14 +1,17 @@
+import { Link } from "react-router-dom";
 import {
   HiMiniBars3CenterLeft,
   HiOutlineHeart,
   HiOutlineShoppingCart,
-  HiOutlineUser,
 } from "react-icons/hi2";
 import { IoSearchOutline } from "react-icons/io5";
-import { Link } from "react-router-dom";
+import { HiOutlineUser } from "react-icons/hi";
+
 import avatarImg from "../assets/avatar.png";
 import { useState } from "react";
 import { useSelector } from "react-redux";
+import { useAuth } from "../context/AuthContext";
+
 const navigation = [
   { name: "Dashboard", href: "/user-dashboard" },
   { name: "Orders", href: "/orders" },
@@ -19,19 +22,28 @@ const navigation = [
 const Navbar = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const cartItems = useSelector((state) => state.cart.cartItems);
-  const currentUser = false;
+
+  const { currentUser, logout } = useAuth();
+
+  const handleLogOut = () => {
+    logout();
+  };
+
+  const token = localStorage.getItem("token");
+
   return (
     <header className="max-w-screen-2xl mx-auto px-4 py-6">
       <nav className="flex justify-between items-center">
-        {/**Left Side */}
+        {/* left side */}
         <div className="flex items-center md:gap-16 gap-4">
           <Link to="/">
-            <HiMiniBars3CenterLeft className="size-6"></HiMiniBars3CenterLeft>
+            <HiMiniBars3CenterLeft className="size-6" />
           </Link>
 
-          {/**search input */}
+          {/* search input */}
           <div className="relative sm:w-72 w-40 space-x-2">
-            <IoSearchOutline className="absolute inline-block left-3 inset-y-2"></IoSearchOutline>
+            <IoSearchOutline className="absolute inline-block left-3 inset-y-2" />
+
             <input
               type="text"
               placeholder="Search here"
@@ -40,8 +52,8 @@ const Navbar = () => {
           </div>
         </div>
 
-        {/**Right side */}
-        <div className="relative flex items-center sm:space-x-3 space-x-2">
+        {/* rigth side */}
+        <div className="relative flex items-center md:space-x-3 space-x-2">
           <div>
             {currentUser ? (
               <>
@@ -54,7 +66,7 @@ const Navbar = () => {
                     }`}
                   />
                 </button>
-
+                {/* show dropdowns */}
                 {isDropdownOpen && (
                   <div className="absolute right-0 mt-2 w-48 bg-white shadow-lg rounded-md z-40">
                     <ul className="py-2">
@@ -71,20 +83,32 @@ const Navbar = () => {
                           </Link>
                         </li>
                       ))}
+                      <li>
+                        <button
+                          onClick={handleLogOut}
+                          className="block w-full text-left px-4 py-2 text-sm hover:bg-gray-100"
+                        >
+                          Logout
+                        </button>
+                      </li>
                     </ul>
                   </div>
                 )}
               </>
+            ) : token ? (
+              <Link to="/dashboard" className="border-b-2 border-primary">
+                Dashboard
+              </Link>
             ) : (
               <Link to="/login">
-                <HiOutlineUser className="size-6"></HiOutlineUser>
+                {" "}
+                <HiOutlineUser className="size-6" />
               </Link>
             )}
           </div>
 
           <button className="hidden sm:block">
-            {" "}
-            <HiOutlineHeart className="size-6"></HiOutlineHeart>
+            <HiOutlineHeart className="size-6" />
           </button>
 
           <Link
