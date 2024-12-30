@@ -28,7 +28,7 @@ const CheckoutPage = () => {
   const [isChecked, setIsChecked] = useState(false);
   const onSubmit = async (data) => {
     const newOrder = {
-      name: data.name,
+      name: currentUser?.displayName,
       email: currentUser?.email,
       address: {
         city: data.city,
