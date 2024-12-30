@@ -44,6 +44,18 @@ import OrderPage from "../pages/books/OrderPage";
         },
       ]
     },
+
+    {
+      path: "/dashboard",
+      element: <div>dasboard</div>,
+      children:[
+        {
+          path: "",
+          element: <div>editbook</div>
+        },
+        
+      ]
+    }
   ]);
 
   export default router
