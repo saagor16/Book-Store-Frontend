@@ -12,8 +12,8 @@ const BookCard = ({ book }) => {
     dispatch(addToCart(product));
   };
   return (
-    <div className=" rounded-lg transition-shadow duration-300">
-      <div className="flex flex-col sm:flex-row sm:items-center sm:h-72  sm:justify-center gap-4">
+    <div className="rounded-lg transition-shadow duration-300">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:h-72 sm:justify-center gap-4">
         <div className="sm:h-72 sm:flex-shrink-0 border rounded-md">
           <Link to={`/books/${book._id}`}>
             <img
@@ -24,7 +24,7 @@ const BookCard = ({ book }) => {
           </Link>
         </div>
 
-        <div>
+        <div className="flex flex-col items-start sm:items-start">
           <Link to={`/books/${book._id}`}>
             <h3 className="text-xl font-semibold hover:text-blue-600 mb-3">
               {book?.title}
@@ -35,19 +35,21 @@ const BookCard = ({ book }) => {
               ? `${book.description.slice(0, 80)}...`
               : book?.description}
           </p>
-          <p className="font-medium mb-5">
+          <p className="font-medium sm:mb-5 lg:mb-5 md:mb-0">
             ${book?.newPrice}{" "}
             <span className="line-through font-normal ml-2">
               $ {book?.oldPrice}
             </span>
           </p>
-          <button
-            onClick={() => handleAddToCart(book)}
-            className="btn-primary px-6 space-x-1 flex items-center gap-1 "
-          >
-            <FiShoppingCart className="w-5 h-5" />
-            <span>Add to Cart</span>
-          </button>
+          <div className="w-full flex justify-center sm:justify-start mt-4">
+            <button
+              onClick={() => handleAddToCart(book)}
+              className="btn-primary px-6 space-x-1 flex items-center gap-1"
+            >
+              <FiShoppingCart className="w-5 h-5" />
+              <span className="">Add to Cart</span>
+            </button>
+          </div>
         </div>
       </div>
     </div>
