@@ -1,8 +1,9 @@
 {
-    "rewrites": [
-      {
-        "source": "/(.*)",
-        "destination": "/index.html"
-      }
-    ]
-  }
+  "version": 2,
+  "builds": [
+    {
+      "src": "src/routers/router.jsx",
+      "use": "@vercel/node"
+    }
+  ]
+}
