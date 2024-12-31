@@ -16,9 +16,14 @@ const SingleBook = () => {
     dispatch(addToCart(product));
   };
 
-  if (isLoading) return <div className="text-center text-lg">Loading...</div>;
+  if (isLoading)
+    return <div className="text-center text-lg">Loading...</div>;
   if (isError)
-    return <div className="text-center text-red-500">Failed to load book information</div>;
+    return (
+      <div className="text-center text-red-500">
+        Failed to load book information
+      </div>
+    );
 
   return (
     <div className="max-w-3xl mx-auto mt-10 bg-white shadow-lg rounded-lg p-6 relative">
@@ -29,11 +34,11 @@ const SingleBook = () => {
 
       <div className="flex flex-col md:flex-row gap-6">
         {/* Book Image */}
-        <div className="flex-shrink-0">
+        <div className="flex-shrink-0 group">
           <img
             src={`${getImgUrl(book.coverImage)}`}
             alt={book.title}
-            className="w-full md:w-72 h-auto rounded-lg object-cover"
+            className="w-full md:w-72 h-auto rounded-lg object-cover transform transition-transform duration-300 group-hover:scale-105"
           />
         </div>
 
@@ -56,13 +61,15 @@ const SingleBook = () => {
       </div>
 
       {/* Button */}
-      <button
-        onClick={() => handleAddToCart(book)}
-        className="absolute btn-primary bottom-6 right-6 px-6 py-3 hover;text-white  hover:bg-blue-700 rounded-md flex items-center gap-2 shadow-lg transition duration-200"
-      >
-        <FiShoppingCart className="text-lg" />
-        <span>Add to Cart</span>
-      </button>
+      <div className="flex justify-center mt-6 md:justify-end">
+        <button
+          onClick={() => handleAddToCart(book)}
+          className="btn-primary px-6 py-3 hover:text-white bg-blue-600 hover:bg-blue-700 rounded-md flex items-center gap-2 shadow-lg transition duration-200"
+        >
+          <FiShoppingCart className="text-lg" />
+          <span>Add to Cart</span>
+        </button>
+      </div>
     </div>
   );
 };
