@@ -34,16 +34,19 @@ This is the frontend of the **Book Store** application, built using React, Vite,
 
 ## Environment Variables
 
-Create a `.env.local` file in the root directory with the following variables:
+The following environment variables need to be configured in a `.env.local` file:
 
 ```env
-VITE_API_KEY= "AIzaSyBZL_ne4xTpslFWIen4axkZ0QozB2DwA6U"
-VITE_AUTH_DOMAIN= "book-store-app-ff563.firebaseapp.com"
-VITE_PROJECT_ID= "book-store-app-ff563"
-VITE_STORAGE_BUCKET= "book-store-app-ff563.firebasestorage.app"
-VITE_MESSAGING_SENDERID= "7459842127"
-VITE_APPID= "1:7459842127:web:07e8d67bc93f7f8323223a"
+VITE_API_KEY= "your-api-key"
+VITE_AUTH_DOMAIN= "your-auth-domain"
+VITE_PROJECT_ID= "your-project-id"
+VITE_STORAGE_BUCKET= "your-storage-bucket"
+VITE_MESSAGING_SENDERID= "your-messaging-sender-id"
+VITE_APPID= "your-app-id"
 ```
+
+> **Note:** Replace `your-api-key`, `your-auth-domain`, etc., with your actual Firebase credentials. Make sure to keep this file secret and never expose it in your repository.
+
 
 ---
 
