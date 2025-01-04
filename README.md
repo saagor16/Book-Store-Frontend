@@ -10,7 +10,7 @@ This is the frontend of the **Book Store** application, built using React, Vite,
 - **Admin Panel**: [Admin Panel](https://book-store-app-ff563.web.app/admin)
   - **Username**: `admin`
   - **Password**: `123456`
-- **Backend GitHub Repository**: [Book Store Backend](https://github.com/saagor16/Book-Store-Backend)
+- **Backend GitHub Repository**: [Book Store Backend](https://github.com/saagor16/Book-Store-Backend-)
 
 ---
 
