@@ -103,7 +103,3 @@ VITE_APPID= "your-app-id"
 
 ---
 
-## License
-
-This project is licensed under the ISC License.
-
